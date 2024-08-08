@@ -9,3 +9,107 @@
   bottom: 0;
   width: 100%;
 }
+
+.custom-btn {
+  border: 1px solid black;
+}
+
+.custom-btn:hover,
+.custom-btn:active {
+  color: white;
+}
+
+.cardHeight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Imposta l'altezza al 100% per riempire la colonna */
+}
+
+.imgStyle {
+  height: 200px; /* Imposta un'altezza fissa per le immagini */
+  width: auto;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.customLink:hover {
+  color: #77182f;
+}
+
+.customLink {
+  font-weight: bold;
+}
+
+.wineNameColor {
+  color: #3e4a8e;
+}
+
+.bgPrice {
+  background-color: #77182f;
+}
+
+.bgMain {
+  background-image: url("https://www.triacca.com/wp-content/uploads/2022/02/Casa-Vinicola-Triacca-Esperienze-Toscana-02-1536x1075.jpg");
+  filter: blur(3px);
+  transition: opacity 0.5s ease-in-out;
+}
+
+.bgFooter {
+  background-color: #77182f;
+}
+
+.list-group-item {
+  border: none !important;
+}
+
+.custom-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  color: white;
+  background-color: #343a40;
+}
+
+.custom-button:hover {
+  background-color: #495057;
+  text-decoration: none;
+}
+
+.custom-button:focus,
+.custom-button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+.titleFont {
+  font-family: sans-serif;
+}
+
+.detailsImage {
+  max-height: 500px;
+  max-width: 500px;
+}
+
+.customLink {
+  display: block;
+  width: 100%;
+}
+
+@media (max-width: 575.98px) {
+  .customLink {
+    padding: 10px 0;
+  }
+}

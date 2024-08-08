@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Col, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 const Registration = () => {
@@ -25,7 +25,7 @@ const Registration = () => {
         throw new Error(errorData.message || "errore durante la registrazione");
       }
       const data = await response.json();
-      console.log("Registrazione effettuata" + data.userId);
+      console.log("Registrazione effettuata" + " " + data.userId);
       navigate("/login");
     } catch (error) {
       console.log(error.message);
@@ -33,56 +33,64 @@ const Registration = () => {
   };
 
   return (
-    <Container>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formName" className="mt-3 inputFormRegister">
-          <Form.Control
-            type="text"
-            placeholder="Nome"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="inputFormRegister"
-          />
-        </Form.Group>
+    <Container className="d-flex justify-content-center align-items-center min-vh-100">
+      <Col xs={12} md={4}>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group controlId="formName" className="mt-3 inputFormRegister">
+            <Form.Control
+              type="text"
+              placeholder="Nome"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="inputFormRegister"
+            />
+          </Form.Group>
 
-        <Form.Group controlId="formSurname" className="mt-3 inputFormRegister">
-          <Form.Control
-            type="text"
-            placeholder="Cognome"
-            value={surname}
-            onChange={(e) => setSurname(e.target.value)}
-            className="inputFormRegister"
-          />
-        </Form.Group>
+          <Form.Group
+            controlId="formSurname"
+            className="mt-3 inputFormRegister"
+          >
+            <Form.Control
+              type="text"
+              placeholder="Cognome"
+              value={surname}
+              onChange={(e) => setSurname(e.target.value)}
+              className="inputFormRegister"
+            />
+          </Form.Group>
 
-        <Form.Group controlId="formEmail" className="mt-3 inputFormRegister">
-          <Form.Control
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="inputFormRegister"
-          />
-        </Form.Group>
+          <Form.Group controlId="formEmail" className="mt-3 inputFormRegister">
+            <Form.Control
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="inputFormRegister"
+            />
+          </Form.Group>
 
-        <Form.Group controlId="formPassword" className="mt-3 inputFormRegister">
-          <Form.Control
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="inputFormRegister"
-          />
-        </Form.Group>
+          <Form.Group
+            controlId="formPassword"
+            className="mt-3 inputFormRegister"
+          >
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="inputFormRegister"
+            />
+          </Form.Group>
 
-        <Button
-          variant="primary"
-          type="submit"
-          className="mt-3 w-100 btnRegister"
-        >
-          Crea un account
-        </Button>
-      </Form>
+          <Button
+            variant="dark"
+            type="submit"
+            className="mt-3 w-100 btnRegister"
+          >
+            Crea un account
+          </Button>
+        </Form>
+      </Col>
     </Container>
   );
 };
