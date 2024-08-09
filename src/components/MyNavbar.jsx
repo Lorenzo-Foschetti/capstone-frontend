@@ -25,10 +25,10 @@ const MyNavbar = () => {
               {isLogged ? (
                 <>
                   <NavLink
-                    className="me-4 nav-link text-white btn btn-outline-dark custom-btn"
+                    className="me-4 nav-link text-white text-center btn btn-outline-dark custom-btn"
                     to="/cart"
                   >
-                    <i className="bi bi-cart"></i>
+                    <i className="bi bi-cart px-1"></i>
                   </NavLink>
                   <Button variant="dark" onClick={handleLogOut}>
                     Log out
