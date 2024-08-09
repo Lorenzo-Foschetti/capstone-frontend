@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button, Form, Container } from "react-bootstrap";
 import { useState, useEffect } from "react";
-import { uploadImage } from "../redux/actions/UploadImage";
 import { updateBottleAction } from "../redux/actions/updateBottleAction";
 import { getAllWinesAction } from "../redux/actions/getAllWinesAction";
 
@@ -10,7 +9,7 @@ const EditBottleForm = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [file, setFile] = useState(null);
+
   const [formData, setFormData] = useState({
     name: "",
     collection: "",
@@ -40,24 +39,11 @@ const EditBottleForm = () => {
     }
   }, [dispatch, id, bottlesContent]);
 
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
-  };
-
   const handleChange = (event) => {
     setFormData({
       ...formData,
       [event.target.name]: event.target.value,
     });
-  };
-
-  const handleImageSubmit = (event) => {
-    event.preventDefault();
-    if (file) {
-      dispatch(uploadImage(file, id)); // l'ID della bottiglia
-    } else {
-      console.log("No file selected.");
-    }
   };
 
   const handleFormSubmit = (event) => {
@@ -119,15 +105,6 @@ const EditBottleForm = () => {
         </Form.Group>
         <Button variant="warning" type="submit" className="mt-3">
           Aggiorna Bottiglia
-        </Button>
-      </Form>
-      <Form onSubmit={handleImageSubmit} className="mt-4">
-        <Form.Group>
-          <Form.Label>Carica nuova immagine</Form.Label>
-          <Form.Control type="file" onChange={handleFileChange} />
-        </Form.Group>
-        <Button variant="warning" type="submit" className="mt-3">
-          Carica Immagine
         </Button>
       </Form>
     </Container>
